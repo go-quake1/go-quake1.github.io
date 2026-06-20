@@ -1,0 +1,19 @@
+baseURL = "https://go-quake1.github.io/"
+title = "go-quake1"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+# Each repo card. "result" is the honest one-line blurb (role + what is true).
+# "kind" = the layer: engine / common / model / vm / brand.
+[[params.repos]]
+  name = "engine"
+  accel = "common · models · progs (QuakeC VM) · server · client · sound"
+  kind = "engine"
+  result = "The Quake engine in pure Go. Hand-ported from tyrquake-NQ commit 6531579. 22 packages at 100% statement coverage today (common + models + progs + bspfile + bsptrace); server / client / sound / backend in flight. CGO_ENABLED=0, 6-arch CI, BSD-3 wrapper + GPL-2 engine carve-out."
+[[params.repos]]
+  name = "brand"
+  accel = "Logos, favicons, social previews"
+  kind = "brand"
+  result = "Brand assets — SVG / PNG / JPG / ICO / ICNS in color, white-transparent and black-transparent variants. Drives this landing, the engine README banner, and the org avatar."
