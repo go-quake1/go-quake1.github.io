@@ -42,5 +42,5 @@ Configure GitHub Pages on the repo with **Source = "GitHub Actions"**
 - [go-quake3](https://go-quake3.github.io) — id Tech 3 (1999), reserved.
 - [cloud-boot](https://cloud-boot.github.io) — the UEFI bootloader that
   hands control to the TamaGo Quake guest.
-- [godoom](https://github.com/cloud-boot/godoom) — sibling DOOM port; same
+- [go-doom/engine](https://github.com/go-doom/engine) — sibling DOOM port; same
   4-gate provable-test protocol.
