@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* Dark Reader repaints pages that already draw their own dark theme, as this one does: ask it to stand aside. */}}
+<meta name="darkreader-lock">
 <title>{{ .Site.Title }} &mdash; pure-Go Quake engine</title>
 <meta name="description" content="Pure-Go Quake 1 (id Tech 1, 1996) engine. Hand-ported from tyrquake-NQ, CGO_ENABLED=0, 100% statement coverage discipline, bare-metal TamaGo target. Built for cloud-boot UEFI; runs the same engine on six 64-bit Go arches without any cgo, SDL, GL, or OpenAL.">
 <style>
