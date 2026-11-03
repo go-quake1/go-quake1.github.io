@@ -95,7 +95,11 @@
       the software renderer writes, and a second pass displays it, so the picture keeps the software
       look. Checked pixel for pixel against the software renderer on a real GPU: 94.9&nbsp;% of the
       pixels identical on 16 fixed e1m1 views, 1.5&nbsp;% differing in a way a one-pixel shift does
-      not explain. Sky, water, models and dynamic lights are still software.</p>
+      not explain. Since v0.4.0 the sky, the water and the alias models (monsters, items, the view
+      weapon) are drawn on the GPU too, each checked against the engine's software fill; at
+      1280&times;800 the sky takes 0.59&nbsp;ms on the GPU against 6.1&nbsp;ms in software, the water
+      2.0&nbsp;ms against 8.4&nbsp;ms, and the models are no faster than the CPU path. Dynamic lights
+      are still software.</p>
 
     <h2 class="section">Repositories</h2>
     <section class="grid">
