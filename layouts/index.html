@@ -57,6 +57,7 @@
       <div class="trust">{{ if not (partial "mantra-on.html" $) }}<span class="pill">CGO_ENABLED=0</span>{{ end }}
       <span class="pill">no SDL · no GL · no OpenAL · no libc</span>
       <span class="pill">soft renderer over <a href="https://github.com/go-virtio">go-virtio</a></span>
+      <span class="pill">BSP world on the GPU in the browser (<a href="https://github.com/go-gfx/webgpu">WebGPU</a>)</span>
       <span class="pill">SIMD via <a href="https://github.com/go-asmgen">go-asmgen</a></span>
       <span class="pill">6-arch CI</span>
       <span class="pill">100% coverage discipline</span></div>
@@ -87,6 +88,14 @@
       inherits the <a href="https://github.com/go-doom/engine">go-doom/engine</a>
       <strong>4-gate provable-test protocol</strong> (engine determinism BYTE-EQUAL · guest-GPU
       &chi;&sup2; bounded · audio events BYTE-EQUAL · audio WAV RMS bounded).</p>
+
+    <p class="lead"><strong>The BSP world renders on the GPU.</strong> In the browser build the
+      level's faces, base textures and lightmaps are drawn by a
+      <a href="https://github.com/go-gfx/webgpu">WebGPU</a> pass into the same 8-bit palettized frame
+      the software renderer writes, and a second pass displays it, so the picture keeps the software
+      look. Checked pixel for pixel against the software renderer on a real GPU: 94.9&nbsp;% of the
+      pixels identical on 16 fixed e1m1 views, 1.5&nbsp;% differing in a way a one-pixel shift does
+      not explain. Sky, water, models and dynamic lights are still software.</p>
 
     <h2 class="section">Repositories</h2>
     <section class="grid">
