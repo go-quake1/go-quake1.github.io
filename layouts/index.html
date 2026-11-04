@@ -101,7 +101,13 @@
       2.0&nbsp;ms against 8.4&nbsp;ms, and the models are no faster than the CPU path. Since
       v0.5.0 the software reference itself is Quake's own code (tyrquake's water, sky dome and
       Gouraud alias lighting, ported and tested against values from the source), and the GPU
-      matches it to 0.006&nbsp;% of the world's pixels. Dynamic lights are still software.</p>
+      matches it to 0.006&nbsp;% of the world's pixels. Since v0.6.0 entities are lit from the
+      lightmap under them (<code>R_LightPoint</code>), and the alias models are rasterised by
+      tyrquake's <code>d_polyse.c</code> fixed-point edge walk, on the CPU and on the GPU
+      (0.75&nbsp;% of the alias region unexplained against a 3&nbsp;% tolerance, 0.03&nbsp;% without
+      the far models that Quake draws by recursion); porting it also fixed models being drawn
+      inside out. The GPU's water and sky now use the original 16- and 32-pixel sub-spans (sky
+      4.9&nbsp;% of pixels differing before, 0.08&nbsp;% now). Dynamic lights are still software.</p>
 
     <h2 class="section">Repositories</h2>
     <section class="grid">
