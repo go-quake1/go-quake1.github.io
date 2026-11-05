@@ -107,7 +107,12 @@
       (0.75&nbsp;% of the alias region unexplained against a 3&nbsp;% tolerance, 0.03&nbsp;% without
       the far models that Quake draws by recursion); porting it also fixed models being drawn
       inside out. The GPU's water and sky now use the original 16- and 32-pixel sub-spans (sky
-      4.9&nbsp;% of pixels differing before, 0.08&nbsp;% now). Dynamic lights are still software.</p>
+      4.9&nbsp;% of pixels differing before, 0.08&nbsp;% now). Since v0.7.0 the world is drawn from
+      Quake's own surface cache with mip levels (<code>D_CacheSurface</code>,
+      <code>R_DrawSurface</code>, the mip chosen from the face's distance), in software and on the
+      GPU, which bakes the same lit surfaces at four levels: 0.0006&nbsp;% of the world's pixels
+      unexplained on the 16 views, while a GPU without the mip choice fails at 13.7&nbsp;% and one
+      level too far at 28.2&nbsp;%. Dynamic lights are still software.</p>
 
     <h2 class="section">Repositories</h2>
     <section class="grid">
