@@ -115,6 +115,13 @@
       level too far at 28.2&nbsp;%. Since v0.7.1 the GPU's CPU cost for the mip choice is
       0.205&nbsp;ms against 0.280&nbsp;ms. Dynamic lights are still software.</p>
 
+    <p class="lead"><strong>Runs in a container on a GPU.</strong> From engine v0.10.0 the engine also
+      builds as a WASI guest (<code>cmd/quake-wctr</code>) that presents every frame on a
+      <code>wasi-gfx</code> surface, the 8-bit frame and its palette going to the GPU. The
+      <a href="https://go-wasmcontainers.github.io/playground/">wasmcontainers playground</a> has a
+      <code>quake</code> image: <code>wctr run --rm --gpu -m 512m quake</code> plays e1m1. Drawing the
+      world on the GPU in that path is not done yet.</p>
+
     <h2 class="section">Repositories</h2>
     <section class="grid">
       {{ range .Site.Params.repos }}
