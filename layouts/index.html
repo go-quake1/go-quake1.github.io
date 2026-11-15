@@ -125,7 +125,10 @@
       unexplained). From engine v0.15.0 the game loop can draw its lit world faces on the GPU too
       (<code>quake --gpuworld</code>, the CPU stays the default), the software pass drawing the sky and
       water, entities, particles, view model and HUD over it. On e1m1, view 4, the world frame takes
-      1.08&nbsp;ms on the GPU with its read-back against 7.68&nbsp;ms in software.</p>
+      1.08&nbsp;ms on the GPU with its read-back against 7.68&nbsp;ms in software. From engine v0.16.0
+      every freepak e1 map draws its world on the GPU (two surface atlases), e1m2 in 1.43&nbsp;ms
+      against 15.28&nbsp;ms in software. From v0.17.0 every parser that reads a pak is fuzzed in CI,
+      and a malformed header is refused.</p>
 
     <h2 class="section">Repositories</h2>
     <section class="grid">
