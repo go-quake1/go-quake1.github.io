@@ -46,15 +46,13 @@
   <div class="hero"><div class="wrap">
     <div>
       <h1 class="head">go-quake1</h1>
-      <p class="sub">Pure-Go <strong>Quake</strong> &mdash; the original 1996 id Tech 1 engine,
+      <p class="sub">{{ if partial "mantra-on.html" . }}Go{{ else }}Pure-Go{{ end }} <strong>Quake</strong> &mdash; the original 1996 id Tech 1 engine,
       <strong>hand-ported</strong> from <a href="https://disenchant.net/tyrquake/">tyrquake-NQ</a>,
-      <strong>cgo-free</strong>, designed for <a href="https://github.com/usbarmory/tamago">TamaGo</a>
+      <strong>{{ if not (partial "mantra-on.html" $) }}cgo-free{{ end }}</strong>, designed for <a href="https://github.com/usbarmory/tamago">TamaGo</a>
       bare metal under the <a href="https://github.com/cloud-boot">cloud-boot</a> UEFI loader.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://github.com/go-quake1/engine#readme">{{ partial "icons/book.html" . }}Engine README</a>
-        <a class="btn btn-ghost" href="https://github.com/go-quake1">{{ partial "icons/github.html" . }}GitHub</a>
-      </div>
-      <div class="trust">{{ if not (partial "mantra-on.html" $) }}<span class="pill">CGO_ENABLED=0</span>{{ end }}
+      {{/* [[params.cta]] in hugo.toml: the kit renders the row */}}
+      {{ partial "cta.html" . }}
+      <div class="trust">{{ if not (partial "mantra-on.html" $) }}{{ if not (partial "mantra-on.html" $) }}<span class="pill">CGO_ENABLED=0</span>{{ end }}{{ end }}
       <span class="pill">no SDL · no GL · no OpenAL · no libc</span>
       <span class="pill">soft renderer over <a href="https://github.com/go-virtio">go-virtio</a></span>
       <span class="pill">BSP world on the GPU in the browser (<a href="https://github.com/go-gfx/webgpu">WebGPU</a>)</span>
