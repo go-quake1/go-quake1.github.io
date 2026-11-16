@@ -140,8 +140,10 @@
       unexplained). From engine v0.15.0 the game loop can draw its lit world faces on the GPU too
       (<code>quake --gpuworld</code>; since v0.22.0 it is the default whenever the container has a GPU,
       with <code>--cpuworld</code> to force the CPU, and v0.22.0 also wires the server's light styles
-      and lights the entities with the dynamic lights), the software pass drawing the sky and
-      water, entities, particles, view model and HUD over it. On e1m1, view 4, the world frame takes
+      and lights the entities with the dynamic lights; since v0.24.0 the GPU draws the alias
+      entities too, in a layer of their own put over the frame after the CPU's sky and water), the
+      software pass drawing the sky and water, the particles, view model and HUD over it (and the
+      far models, the models with animated frames and a frame with fewer than three entities). On e1m1, view 4, the world frame takes
       1.08&nbsp;ms on the GPU with its read-back against 7.68&nbsp;ms in software. From engine v0.16.0
       every freepak e1 map draws its world on the GPU (two surface atlases), e1m2 in 1.43&nbsp;ms
       against 15.28&nbsp;ms in software. From v0.17.0 every parser that reads a pak is fuzzed in CI,
