@@ -138,7 +138,9 @@
       same submit), and checks it against the software frame: a GPU frame is not hash-equal to the
       CPU's, so the measure is the pixels a one-pixel shift does not explain (7 of 256,000 differ, 0
       unexplained). From engine v0.15.0 the game loop can draw its lit world faces on the GPU too
-      (<code>quake --gpuworld</code>, the CPU stays the default), the software pass drawing the sky and
+      (<code>quake --gpuworld</code>; since v0.22.0 it is the default whenever the container has a GPU,
+      with <code>--cpuworld</code> to force the CPU, and v0.22.0 also wires the server's light styles
+      and lights the entities with the dynamic lights), the software pass drawing the sky and
       water, entities, particles, view model and HUD over it. On e1m1, view 4, the world frame takes
       1.08&nbsp;ms on the GPU with its read-back against 7.68&nbsp;ms in software. From engine v0.16.0
       every freepak e1 map draws its world on the GPU (two surface atlases), e1m2 in 1.43&nbsp;ms
