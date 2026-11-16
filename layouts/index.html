@@ -117,7 +117,10 @@
       builds as a WASI guest (<code>cmd/quake-wctr</code>) that presents every frame on a
       <code>wasi-gfx</code> surface, the 8-bit frame and its palette going to the GPU. The
       <a href="https://go-wasmcontainers.github.io/playground/">wasmcontainers playground</a> has a
-      <code>quake</code> image: <code>wctr run --rm --gpu -m 512m quake</code> plays e1m1. From engine v0.13.0
+      <code>quake</code> image: <code>wctr run --rm --gpu -m 512m quake</code> opens on the main menu
+      (New Game, a skill, then the hub's portals change level; <code>--map e1m1</code> skips the menu),
+      and from engine v0.19.0 the mouse works: the first click locks the pointer, the mouse looks
+      around and the left button fires, and Escape releases it. From engine v0.13.0
       <code>quake --worldref 4 --gpuworld</code> also draws the world on the GPU inside the
       container, through the batched stream (one host crossing per frame, the frame read back in the
       same submit), and checks it against the software frame: a GPU frame is not hash-equal to the
