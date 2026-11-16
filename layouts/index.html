@@ -111,7 +111,14 @@
       GPU, which bakes the same lit surfaces at four levels: 0.0006&nbsp;% of the world's pixels
       unexplained on the 16 views, while a GPU without the mip choice fails at 13.7&nbsp;% and one
       level too far at 28.2&nbsp;%. Since v0.7.1 the GPU's CPU cost for the mip choice is
-      0.205&nbsp;ms against 0.280&nbsp;ms. Dynamic lights are still software.</p>
+      0.205&nbsp;ms against 0.280&nbsp;ms. Since v0.18.0 the GPU follows the light styles and the
+      <code>+</code> textures (it re-bakes and uploads only the surfaces that moved: 4 to 8&nbsp;KB a
+      frame at 60&nbsp;fps on e1m1), since v0.20.0 the dynamic lights
+      (<code>R_MarkLights</code>, <code>R_PushDlights</code>, the light term of
+      <code>R_BuildLightMap</code>, ported on the CPU too: 7 of 1,024,000 pixels unexplained on a real
+      GPU, a GPU that ignores them fails at 81&nbsp;%), and since v0.21.0 alias triangles that cross
+      the near plane are clipped as in <code>r_aclip.c</code> (0.17&nbsp;% of the alias pixels
+      unexplained with the camera at the near plane, a GPU that drops them fails at 6.3&nbsp;%).</p>
 
     <p class="lead"><strong>Runs in a container on a GPU.</strong> From engine v0.10.0 the engine also
       builds as a WASI guest (<code>cmd/quake-wctr</code>) that presents every frame on a
